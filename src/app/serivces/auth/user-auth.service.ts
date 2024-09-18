@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, map, Observable, tap } from 'rxjs';
 import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 
@@ -31,6 +31,25 @@ export class UserAuthService {
     rememberMe:boolean
   ):Observable<any>{
     const loginData = { email, password, rememberMe };
-    return this.httpClient.post<any>(`${this.url}/login`, loginData);
+    return this.httpClient.post<any>(`${this.url}/login`, loginData).pipe(map((response) => {
+      const userToken = response.token;
+      if (userToken) {
+        localStorage.setItem('token', userToken);
+        this.isLoggedSubject.next(true); 
+      }
+      return response;
+    }));
+  }
+
+  Logout() {
+    localStorage.removeItem('token');
+    this.isLoggedSubject.next(false);
+  }
+  get isUserLogged(): boolean{
+    return (localStorage.getItem('token'))?true:false;
+  }
+
+  getLoggedStatus(): Observable<boolean>{
+    return this.isLoggedSubject.asObservable();
   }
 }
