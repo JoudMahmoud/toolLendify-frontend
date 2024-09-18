@@ -5,8 +5,7 @@ import { UserAuthService } from '../../serivces/auth/user-auth.service';
 //   return true;
 // };
 class AuthGuard implements CanActivate {
-
-  constructor(private authService: UserAuthService, private router: Router) { }
+  constructor(private authService: UserAuthService, private router: Router) {}
   canActivate() {
     if (this.authService.isUserLogged) {
       return true;
