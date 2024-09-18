@@ -1,0 +1,76 @@
+<div class="container-fluid d-flex justify-content-center align-items-center">
+  <img
+    src="../../../assets/images/toolBoy.png"
+    class="img-behide-form"
+    alt=""
+  />
+  <div class="container-form p-5 d-flex">
+    <form class="p-3" (ngSubmit)="Register()">
+      <h6 class="title">toolLendify</h6>
+      <h3>Register</h3>
+      <div class="form-group">
+        <label for="userName">User Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="userName"
+          placeholder="user name"
+          name="userName"
+          [(ngModel)]="userRegister.userName"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          placeholder="Email"
+          [(ngModel)]="userRegister.email"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          name="password"
+          placeholder="Password"
+          [(ngModel)]="userRegister.password"
+          autocomplete="password"
+
+          />
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="confirmPassword"
+          name="confirmPassword"
+          placeholder="Confirm your password"
+          [(ngModel)]="userRegister.confirmPassword"
+          autocomplete="comfirmPassword"
+
+          />
+      </div>
+      <p *ngIf="userRegister.styleMessageError" class="text-danger">
+        {{ userRegister.messageError }}
+      </p>
+      <button type="submit" class="register-btn btn btn-primary mt-4">
+        Register
+      </button>
+    </form>
+    <div class="img-container pe-5 d-flex justify-content-center align-items-center">
+      <img class="img-form w-100" src="../../../assets/images/toolBoy.png" alt="" />
+    </div>
+
+  </div>
+</div>
+
+

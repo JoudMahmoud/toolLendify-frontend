@@ -1,0 +1,57 @@
+<div class="container-fluid d-flex justify-content-center align-items-center">
+  <img
+    src="../../../assets/images/toolBoy.png"
+    class="img-behide-form"
+    alt=""
+  />
+  <div class="container-form p-5 d-flex">
+    <form class="p-3" (ngSubmit)="Login()">
+      <h6 class="title">toolLendify</h6>
+      <h3>Login</h3>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          placeholder="Email"
+          [(ngModel)]="userLogin.email"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          name="password"
+          placeholder="Password"
+          [(ngModel)]="userLogin.password"
+          autocomplete="password"
+        />
+      </div>
+
+      <p *ngIf="userLogin.styleMessageError" class="text-danger">
+        {{ userLogin.messageError }}
+      </p>
+      <div class="d-flex w-100 justify-content-end">
+        <button class="btn btn-link">Remember me</button>
+      </div>
+      <button type="submit" class="register-btn btn btn-primary mt-4">
+        Login
+      </button>
+    </form>
+    <div
+      class="img-container pe-5 d-flex justify-content-center align-items-center"
+    >
+      <img
+        class="img-form w-100"
+        src="../../../assets/images/toolBoy.png"
+        alt=""
+      />
+    </div>
+  </div>
+</div>
