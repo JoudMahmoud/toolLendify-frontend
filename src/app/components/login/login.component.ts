@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { UserLogin } from '../../_models/user-login';
-import { UserAuthService } from '../../serivces/auth/user-auth.service';
 import { Router } from '@angular/router';
+import { UserAuthService } from '../../services/auth/user-auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,6 +11,9 @@ import { Router } from '@angular/router';
 export class LoginComponent {
   userLogin: UserLogin;
 
+
+  // green-color:
+
   constructor(private authservice:UserAuthService, private router:Router) {
     this.userLogin = {
       email: '',
@@ -19,6 +22,7 @@ export class LoginComponent {
       messageError: 'Email or password is incorrect',
       styleMessageError:false
     };
+
   }
 
   Login() {

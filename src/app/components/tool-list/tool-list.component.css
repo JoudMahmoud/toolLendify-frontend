@@ -1,0 +1,208 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+/* Basic input styles */
+.container-search .search {
+  position: relative;
+  caret-color: #008CBA;
+  width: 100%;
+  border: 1px solid #a1a1a1;
+  transition:border-color .4s ease-in-out;
+
+}
+
+/* On focus, change border color */
+.container-search .search:focus-within {
+  border-color: #dee2e6;
+  box-shadow: none;
+  transition:all 3s ease-in-out;
+
+}
+
+/* Outer wrapper to contain the pseudo-element */
+.search-wrapper {
+  position: relative;
+  /* transition:all .4s ease-in-out; */
+}
+
+/* Pseudo-element applied to the wrapper, not the input */
+.search-wrapper:focus-within::after {
+  content: "";
+  position: absolute;
+
+  top: -5px;
+  left: -5px;
+   width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  border: 1px solid #008CBA;
+  pointer-events: none;
+  border-radius: 4px;
+  z-index: 1;
+  transition: border 0.4s ease-in-out, top 0.4s ease-in-out, left 0.4s ease-in-out;
+}
+.container-search .btn-reset{
+  border-radius: 3px;
+    background-color: white;
+    color: #008CBA;
+    padding: 4px 12px;
+    border: 1px solid #008CBA;
+    transition-duration: .4s;
+}
+.container-search .btn-reset:hover{
+  background-color: #d6e8fa;
+
+}
+/* ======================= */
+.tabrow {
+  /* text-align: center; */
+  list-style: none;
+  margin: 0px 0 0px 50px;
+  padding: 0;
+  line-height: 35px;
+  height: 37px;
+  overflow: hidden;
+  font-size: 12px;
+  position: relative;
+}
+
+.tabrow li {
+  border: 1px solid #aaa;
+  background: #d1d1d1;
+  background: linear-gradient(top, #ececec 50%, #d1d1d1 100%);
+  display: inline-block;
+  position: relative;
+  z-index: 0;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), inset 0 1px 0 #fff;
+  text-shadow: 0 1px #fff;
+  margin: 0 -5px;
+  padding: 0 0px;
+  width: 100px;
+  text-align: center;
+}
+.tabrow li:first-child {
+  margin-left: 0; /* Remove negative margin from the first tab */
+  border-left: 1px solid #aaa; /* Add left border */
+  /* border-radius: 6px 0 0 6px; Adjust left border radius */
+}
+.tabrow button {
+  color: #555;
+  border: none;
+  background-color: transparent;
+  /* text-decoration: none; */
+  /* width: 150px; */
+}
+
+.tabrow li.selected {
+  background: #fff;
+  color: #333;
+  z-index: 2;
+  border-bottom-color: #fff;
+}
+ /* mx-4 px-4 pb-4 */
+.tab-content {
+  margin: 0 30px 0 30px;
+  padding: 30px 20px 30px 20px;
+  border-style: solid;
+  border-width: 0px 1px 1px 2px;
+  border-color: #ccc #ccc #ccc #ccc;
+  background: linear-gradient(top, #ececec 50%, #d1d1d1 100%);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4), inset 0 1px 0 #fff;
+  border-radius: 6px 6px 6px 6px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ======================================= */
+
+.container {
+  gap: 20px;
+}
+
+.container .card {
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border-width: 1px; /* Use your desired color and thickness */
+  border-style: solid;
+  border-color: transparent;
+  border-radius: 5px;
+  transition: all .3s ease-in-out;
+}
+
+.container .available:hover {
+  border-color: green; /* Use your desired color and thickness */
+}
+
+/* Border for unavailable tools */
+.container .un-available:hover {
+  border-color: orange; /* Use your desired color and thickness */
+}
+
+.container .card .availability {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  border-radius: 4px;
+  padding: 2px 4px;
+  /*background-color: rgba(0, 128, 0, .15);
+  color: rgb(0, 128, 0);
+  border-radius: 4px;
+  top: 10px;
+  left: 10px;
+  font-size: 12px; */
+}
+.container .card .text-success {
+  background-color: rgba(0, 128, 0, 0.15);
+  /* color: red; */
+}
+.container .card .text-warning {
+  background-color: rgba(235, 155, 99, 0.15);
+}
+
+/* eb9b63 */
+.container .card img {
+  background-color: #f2f2f2;
+  padding: 2px;
+  border-radius: 4px 4px 0 0;
+}
+
+.container .card .card-body {
+  padding: 5px;
+}
+/* .container .card h5{
+  padding: 0;
+  margin: 0;
+} */
+
+.container .card .description {
+  display: -webkit-box;
+  max-width: 100%;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-spacing: -2px;
+  color: #717171;
+}
+.container .card .card-body p {
+  margin: 0;
+}
+.container .card i {
+  text-decoration: none;
+  /* color: #09abdc; */
+  /* color: var(--primary-color); */
+  color: var(--primary-dark-blue);
+}
+
+.container .card .card-body .container-price p {
+  margin: 0;
+  color: #78909c;
+  font-weight: bold;
+}
+.container .card .card-body .container-price p span {
+  /* padding-top: 6px; */
+  font-size: 12px;
+}

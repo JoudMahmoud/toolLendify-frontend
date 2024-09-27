@@ -1,9 +1,7 @@
 import { CanActivate, Router } from '@angular/router';
 import { UserAuthService } from '../../serivces/auth/user-auth.service';
 
-// export const authGuardGuard: CanActivateFn = (route, state) => {
-//   return true;
-// };
+
 class AuthGuard implements CanActivate {
   constructor(private authService: UserAuthService, private router: Router) {}
   canActivate() {

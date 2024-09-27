@@ -1,0 +1,125 @@
+<div
+  class="container-search p-4 d-flex justify-content-between align-items-center"
+>
+  <form class="search-wrapper flex-grow-1" (keydown.enter)="getTool(searchValue)">
+    <input
+      class="search form-control p-1 pe-2 bg-light"
+      type="search"
+      placeholder="Search"
+      aria-label="Search"
+     [(ngModel)]="searchValue"
+      name="searchValue"
+    />
+  </form>
+  <!-- (click)="" -->
+  <button class="me-4 btn-reset" (click)="resetSearch()">Reset</button>
+</div>
+
+<ul class="tabrow">
+  <li
+    *ngFor="let tab of tabs; let i = index"
+    [ngClass]="{ selected: i === selectedTab }"
+    (click)="selectTab(i)"
+  >
+    <!-- <a href="#">{{ tabs[i] }}</a> -->
+    <button>{{ tabs[i] }}</button>
+  </li>
+</ul>
+<!-- =========================================== -->
+
+<!-- Tab Content Section -->
+<div class="tab-content" *ngIf="selectedTab === 0">
+  <!-- <p>Content for Tab 1</p> -->
+  <div class="container d-flex">
+    <div
+      class="card"
+      *ngFor="let item of toolList"
+      style="width: 18rem"
+      [ngClass]="item.isAvailable ? 'available' : 'un-available'"
+    >
+      <!-- <p *ngIf="item.isAvailable" class="is-available py-1 px-2">{{Available}}</p> -->
+      <!--
+[ngClass]="item.isAvailable ? 'bg-green' : 'bg-orange'
+i want give card border Based on instructions this card it avaliable or not how i can do this
+
+-->
+      <p
+        class="availability"
+        [ngClass]="item.isAvailable ? 'text-success' : 'text-warning'"
+      >
+        {{ item.availableMessage }}
+      </p>
+      <img
+        src="../../../assets/images/toolBoy.png"
+        class="card-img-top"
+        alt="..."
+      />
+
+      <div class="card-body">
+        <h5 class="card-title">{{ item.name }}</h5>
+        <p class="card-text description">
+          {{ item.description }}
+        </p>
+        <div
+          class="container-price pt-3 pb-2 ps-2 d-flex justify-content-between align-items-center"
+        >
+          <p class="d-flex">
+            <span> EGP</span>{{item.PricePerDay }}500
+          </p>
+          <i class="fa fa-plus"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add the first set of content here -->
+</div>
+
+<div class="tab-content" *ngIf="selectedTab === 1">
+  <div class="container d-flex">
+    <div class="card" *ngFor="let item of toolList" style="width: 18rem">
+      <!-- <p *ngIf="item.isAvailable" class="is-available py-1 px-2">{{Available}}</p> -->
+
+      <p
+        class="availability"
+        [ngClass]="item.isAvailable ? 'text-success' : 'text-warning'"
+      >
+        {{ item.availableMessage }}
+      </p>
+      <img
+        src="../../../assets/images/toolBoy.png"
+        class="card-img-top"
+        alt="..."
+      />
+
+      <div class="card-body">
+        <h5 class="card-title">{{ item.name }}</h5>
+        <p class="card-text description">
+          {{ item.description }}{{ item.description }}
+        </p>
+        <div
+          class="container-price pt-3 pb-2 ps-2 d-flex justify-content-between align-items-center"
+        >
+          <p class="d-flex">
+            <span> EGP</span>{{ item.PricePerDay }}500
+          </p>
+          <i class="fa fa-plus"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add the second set of content here -->
+</div>
+
+<div class="tab-content" *ngIf="selectedTab === 2">
+  <p>Content for Tab 3</p>
+  <!-- Add the third set of content here -->
+</div>
+
+<div class="tab-content" *ngIf="selectedTab === 3">
+  <p>Content for Tab 4</p>
+  <!-- Add the fourth set of content here -->
+</div>
+
+<!-- =========================================== -->
