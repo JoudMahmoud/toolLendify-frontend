@@ -17,7 +17,7 @@ export class OwnerService {
 
   getOwnersByName(name:string): Observable<Owner[]>{
     return this.httpClient.get<Owner[]>(
-      `${this.url}/api/Owner/owners-by-name${name}`
+      `${this.url}/api/Owner/owners-by-name?name=${name}`
     );
   }
 }

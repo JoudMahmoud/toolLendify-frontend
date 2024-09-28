@@ -12,6 +12,8 @@ import { MainLayoutComponent } from './layouts/main-layout/main-layout.component
 import { HeaderComponent } from './components/core/header/header.component';
 import { FooterComponent } from './components/core/footer/footer.component';
 import { SideBarComponent } from './components/core/side-bar/side-bar.component';
+import { OwnerComponent } from './components/owner/owner.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -22,14 +24,16 @@ import { SideBarComponent } from './components/core/side-bar/side-bar.component'
     MainLayoutComponent,
     HeaderComponent,
     FooterComponent,
-    SideBarComponent
+    SideBarComponent,
+    OwnerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+
   ],
   providers: [provideHttpClient()],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

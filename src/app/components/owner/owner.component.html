@@ -1,0 +1,20 @@
+<div class="container p-3">
+  <div *ngIf="owners.length > 0; else noOwners">
+    <ul>
+      <li class="p-2 d-flex align-items-center" *ngFor="let owner of owners">
+        <img
+          src="../../../assets/images/ee51784683bb6dac3a7f55068b8c701f.jpg"
+          alt=""
+        />
+        <div class="info pe-2">
+        <p class="name">{{ owner.name }}</p>
+        <p class="address">{{owner.address}}dsfds</p>
+        </div>
+
+      </li>
+    </ul>
+  </div>
+  <ng-template #noOwners>
+    <p>No owners found</p>
+  </ng-template>
+</div>

@@ -7,9 +7,12 @@
       <button type="button" class="btn-add btn btn-light">Add New</button>
       <input
         class="search form-control mr-sm-2 mx-2 bg-light"
+        (keydown.enter)="getOwners(searchValue)"
         type="search"
         placeholder="Search"
         aria-label="Search"
+        [(ngModel)]="searchValue"
+        name="searchValue"
       />
 
       <img
