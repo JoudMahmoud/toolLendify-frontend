@@ -30,6 +30,7 @@ export class RegisterComponent {
       next: (response) => {
         console.log('Response is', response);
         alert(`Hi ${this.userRegister.userName}`);
+        this.router.navigate(['/login']);
       },
       error: (err) => {
         this.userRegister.styleMessageError = true;
