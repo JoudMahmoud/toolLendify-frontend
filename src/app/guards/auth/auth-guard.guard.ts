@@ -1,5 +1,5 @@
 import { CanActivate, Router } from '@angular/router';
-import { UserAuthService } from '../../serivces/auth/user-auth.service';
+import { UserAuthService } from '../../services/auth/user-auth.service';
 
 
 class AuthGuard implements CanActivate {

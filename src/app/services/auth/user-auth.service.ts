@@ -19,37 +19,38 @@ export class UserAuthService {
     password: string,
     confirmPassword: string,
     email: string
-  ) :Observable<any> {
+  ): Observable<any> {
     const registerDAta = { userName, password, confirmPassword, email };
 
     return this.httpClient.post<any>(`${this.url}/register`, registerDAta);
   }
 
-  Login(
-    email: string,
-    password: string,
-    rememberMe:boolean
-  ):Observable<any>{
+  Login(email: string, password: string, rememberMe: boolean): Observable<any> {
     const loginData = { email, password, rememberMe };
-    return this.httpClient.post<any>(`${this.url}/login`, loginData).pipe(map((response) => {
-      const userToken = response.token;
-      if (userToken) {
-        localStorage.setItem('token', userToken);
-        this.isLoggedSubject.next(true); 
-      }
-      return response;
-    }));
+    return this.httpClient.post<any>(`${this.url}/login`, loginData).pipe(
+      map((response) => {
+        const userToken = response.token;
+        if (userToken) {
+          localStorage.setItem('token', userToken);
+          this.isLoggedSubject.next(true);
+        }
+
+      })
+    );
   }
+
+
 
   Logout() {
     localStorage.removeItem('token');
     this.isLoggedSubject.next(false);
   }
-  get isUserLogged(): boolean{
-    return (localStorage.getItem('token'))?true:false;
+
+  get isUserLogged(): boolean {
+    return localStorage.getItem('token') ? true : false;
   }
 
-  getLoggedStatus(): Observable<boolean>{
+  getLoggedStatus(): Observable<boolean> {
     return this.isLoggedSubject.asObservable();
   }
 }
